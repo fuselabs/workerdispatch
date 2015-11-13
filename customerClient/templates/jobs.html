@@ -1,0 +1,17 @@
+<ion-view >
+
+    <ion-content class="jobs-content" has-header="false" padding="true" >
+
+        <div class="row row-logo"></div>
+
+        <div class="row row-buttons">
+            <div class="col">
+                <div class="animate-repeat" ng-repeat="job in jobs | orderBy:'time_needed'" ui-view="allJobs">
+                  <!-- <a href="#/jobs/"> -->
+                    <button ng-click="go({{job.job_id}})" class='button button-full button-positive'>job #{{job.job_id}}</button>
+                  <!-- </a> -->
+                </div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

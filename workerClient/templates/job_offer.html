@@ -1,0 +1,67 @@
+<ion-view title="job offer information" hide-back-button='true'>
+ <ion-nav-buttons side="right">
+    <button menu-toggle="right" class="button button-icon icon ion-navicon"></button>
+  </ion-nav-buttons>
+<ion-content clas='has-header'>
+<div class="row">
+  <span class='item-image'>
+    <img ng-src='{{offer.getJobData().placeMap}}'>
+  </span>
+</div>
+<div class='row'>
+  <ul class='col'>
+    <li ng-repeat="(title,task) in offer.getJobData().location.rooms">
+      {{task.count}} {{title}}
+    </li>
+  </ul>
+  <ul class='col'>
+    <li>
+      total time:
+      <span class='uncertain'>approx {{offer.totalTimeInHours()}} hours</span>
+    </li>
+    <li>
+      estimated cost:
+      <span class='uncertain'>${{ offer.totalCost() }}</span>
+    </li>
+  </ul>
+</div>
+
+<!-- <div class='col'>
+  <div class='row'>
+    client: {{offer.client.given_name}}
+  </div>
+  
+  <div class="row">
+    <div class='item-image'> <img ng-src="{{ offer.placeMap }}">
+      <div id="centerOverlay"></div>
+    </div>
+  </div>
+
+<div class='row'>
+
+  <div class='col'>
+    <div class='row' ng-repeat="(k,v) in offer.tasks">
+      {{k}}
+    </div>
+  </div>
+
+  <div class='col'>
+      <div class='row'>
+          <h2>{{offer.summary['total time'] | number: 2 }} hours</h2>
+      </div>
+      <div class='row'>
+          <h2>${{offer.summary['total pay'] | number: 2 }}</h2>
+    </div>
+  </div>
+</div>
+-->
+  <div class='row'>
+    <div class='col'>
+      <button ng-click="rejectJob()" class='button button-block button-assertive'>reject</button>
+    </div>
+    <div class='col'>
+      <button ng-click="findTime()" class='button button-block button-balanced'>select a time</button>
+    </div>
+  </div>
+</ion-content>
+</ion-view>

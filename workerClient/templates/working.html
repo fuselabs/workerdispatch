@@ -1,0 +1,49 @@
+<ion-view title="ongoing work">
+<ion-nav-buttons side="right">
+    <button menu-toggle="right" class="button button-icon icon ion-navicon"></button>
+</ion-nav-buttons>
+
+<ion-content padding='true'>
+  
+
+  <ul>
+    <li>
+      working at {{workDetails.getJobData().location.address}}
+    </li>
+    <li>
+      since {{workDetails.getJobData().time_started | date: 'shortTime' }}
+    </li>
+
+<h3>tasks</h3>
+<div class='list' ng-repeat='(k,v) in workDetails.getJobData().tasks'>
+  <div class='item item-divider'>
+    {{k}}
+  </div>
+  <span class='item item-checkbox' ng-repeat='task in v'>
+  <label class='checkbox'>
+    <input type='checkbox'></label>
+      {{task}}
+    </span>
+</div>
+
+<div class='row'>
+
+  <div class='col'>
+    <button ng-click="report()" class='button button-block button-assertive'>
+      report a problem
+    </button>
+  </div>
+
+  <div class='col'>
+    <button ng-click="completeJob()" class='button button-block button-balanced'>
+      finished
+    </button>
+  </div>
+
+</div>
+
+<div class='col col-offset-25 col-50'>
+  
+</div>
+</ion-content>
+</ion-view>

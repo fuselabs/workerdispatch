@@ -1,0 +1,3 @@
+createdb guthrieDB
+psql guthrieDB -c "create table jobs(latitude float8,longitude float8,timestamp timestamptz default current_timestamp,id serial unique);"
+psql guthrieDB -c "CREATE TABLE users (id serial unique,user_fullname character varying(255) NOT NULL,phone character varying(255),address character varying(255),languages character varying(255),email character varying(255) NOT NULL,crypted_password character varying(255) NOT NULL,created_at timestamp with time zone DEFAULT now(),is_admin boolean DEFAULT false,token character varying(255),updated_at timestamp with time zone DEFAULT now());"

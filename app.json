@@ -1,0 +1,10 @@
+{
+  "name": "OpenMarket app",
+  "description": "FUSE Labs project",
+  "repository": null,
+  "logo": null,
+  "keywords": ["node", "express", "angularjs","ionic"],
+  "addons": [
+    "heroku-postgresql"
+  ]
+}

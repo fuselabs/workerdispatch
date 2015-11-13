@@ -1,0 +1,16 @@
+<ion-view title="Job Info - {{job.job_id}}">
+    <ion-content class="jobs-content" has-header="false" padding="true" >
+        <div class="row row-buttons">
+            <div class="col">
+                <div class="animate-repeat">
+                    <ul>
+                        <li>Latitude: {{job.latitude}}</li>
+                        <li>Longitude: {{job.longitude}}</li>
+                        <li>Posted at: {{job.timeupdated}}</li>
+                        <li>Claimed by: {{job.name}}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

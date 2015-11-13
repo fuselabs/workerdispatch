@@ -1,0 +1,238 @@
+/* Color Pallette */
+$orange: #FF9F1C;
+$deepBlue: #0267C1;
+$beige: #E2D7A3;
+$paleBlue: #9CC0E2;
+$lightBeige: lighten($beige, 22%);
+$red: #A30404;
+
+/* Color Assignments */
+$h1Color: $orange;
+$headerColor: $orange;
+
+/* overrides */
+
+.button {
+  border-radius: 3px;
+  font-weight: bold;
+  &.button-positive {
+    background: $deepBlue;
+    border-color: $deepBlue;
+    &.button-outline {
+      border-color: $deepBlue;
+      color: $deepBlue;
+    }
+  }
+  &.button-energized {
+    background: $orange;
+    border-color: $orange;
+    &.button-outline {
+      border-color: $orange;
+      color: $orange;
+    }
+  }
+  &.button-calm {
+    background: $paleBlue;
+    border-color: $paleBlue;
+    &.button-outline {
+      border-color: $paleBlue;
+      color: $paleBlue;
+    }
+  }
+  &.button-balanced {
+    background: $beige;
+    border-color: $beige;
+    &.button-outline {
+      border-color: $beige;
+      color: $beige;
+    }
+  }
+  &.button-assertive {
+    background: $red;
+    border-color: $red;
+    &.button-outline {
+      border-color: $red;
+      color: $red;
+    }
+  }
+}
+
+.bar {
+  &.bar-positive {
+    background: $deepBlue;
+    border-color: $deepBlue;
+  }
+  &.bar-energized {
+    background: $orange;
+    border-color: $orange;
+    background-image: none;
+  }
+  &.bar-calm {
+    background: $paleBlue;
+    border-color: $paleBlue;
+    background-image: none;
+  }
+  &.bar-balanced {
+    background: $beige;
+    border-color: $beige;
+  }
+  &.bar-assertive {
+    background: $red;
+    border-color: $red;
+  }
+}
+
+/* basics */
+
+.bar-header {
+  color: white;
+  h1 {
+    color: white;
+    font-weight: 900;
+  }
+}
+
+.page-header {
+  margin: 10px 0 25px 0;
+  h1 {
+    font-size: 24px;
+    font-weight: 900;
+    color: $h1Color;
+    text-align: center;
+  }
+  h2 {
+    margin-top: 12px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 400;
+  }
+  h3 {
+    margin-top: 12px;
+    text-align: center;
+    font-size: 16px;
+    font-style: italic;
+  }
+}
+
+.section-prompt {
+  text-align: center;
+  font-weight: 600;
+  font-style: italic;
+  margin: 0;
+}
+
+.offset {
+  margin-top: 30px;
+}
+
+.double-offset {
+  margin-top: 60px;
+}
+
+.job-summary-card {
+  margin-top: 0;
+  margin-bottom: 5px;
+}
+
+.job-summary-item {
+  margin-top: 0;
+  padding: 10px;
+  padding-top: 0;
+  .job-summary-detail {
+    font-size: 11px;
+    line-height: 13px;
+  }
+}
+
+.pending-job-info * {
+  white-space: normal;
+}
+
+p.worker-bio {
+  margin-top: 8px;
+  white-space: normal;
+}
+
+.row.no-margin {
+  margin: 0;
+  button {
+    margin: 0;
+  }
+}
+
+.left-aligned {
+  text-align: left;
+}
+.right-aligned {
+  text-align: right;
+}
+
+/* home screen */
+
+.home-content {
+  background: url(/img/new-splash.png) no-repeat;
+  background-size: cover;
+  > .scroll {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  h1 {
+    font-size: 64px;
+    font-weight: 700;
+    text-align: center;
+    text-transform: uppercase;
+  }
+  .row-logo {
+    flex-grow: 1;
+  }
+  .row-buttons {
+    flex-grow: 0;
+  }
+  .button:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.uncertain {
+  color: gray;
+  font-style: italic;
+  font-size: small;
+  /*float:right;*/
+}
+
+.instructions {
+  color: gray;
+  font-style: italic;
+}
+
+.house-info-card .item {
+  background-color: #fffef6;
+}
+
+.item-emph {
+  background: $lightBeige;
+}
+
+/* adding a possible time */
+
+.card {
+  .l1 {
+    font-size: 16px;
+  }
+  .l2 {
+    font-size: 12px;
+  }
+}
+
+.popup-container .popup {
+  width: 300px;
+  border-radius: 8px;
+  .popup-buttons {
+    margin-top: 10px;
+  }
+}
+
+.padding {
+  height: 60px;
+}

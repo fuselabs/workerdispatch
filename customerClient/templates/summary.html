@@ -1,0 +1,59 @@
+<ion-view title='Summary of Work'>
+  <ion-nav-bar class="bar bar-energized">
+    <ion-nav-back-button class="button-clear">
+      <i class="ion-arrow-left-c"></i> Back
+    </ion-nav-back-button>
+  </ion-nav-bar>
+  <ion-content class="summary-content" has-header="true" padding="true" >
+    <div class='list card'>
+      <div class="item item-divider">
+        {{jobNotes.getJobData().worker.first_name}}'s Notes
+      </div>
+      <div class="item item-emph item-thumbnail-right">
+        <img ng-src="{{workerNotes.profile || 'img/no-picture.png'}}">
+        <div class="item-text-wrap" ng-bind-html="notes"></div>
+      </div>
+    </div>
+
+    <div class='list card'>
+      <div class="item">
+        <div class="row">
+          <div class='col col-75'>
+            Total time cleaning:
+          </div>
+          <div class="col col-25 ledger">
+            <span>{{jobNotes.totalTimeInHours()}} hours</span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col col-75">
+            Base pay (${{jobNotes.jobBreakdown().hourlyRate}}
+            x {{jobNotes.totalTimeInHours()}} hours):
+          </div>
+          <div class="col col-25 ledger">
+            ${{jobNotes.jobBreakdown().hourlyRate * jobNotes.totalTimeInHours()}}
+          </div>
+        </div>
+        <div class="row" ng-repeat="(k,v) in jobNotes.jobBreakdown().surcharges">
+          <div class="col col-75">
+            {{k}} ({{v *100}}%)
+          </div>
+          <div class="col col-25 ledger">
+            ${{jobNotes.jobBreakdown().hourlyRate * jobNotes.totalTimeInHours() * v}}
+          </div>
+        </div>
+        <div class="row">
+          <div class="col col-75">
+            Total:
+          </div>
+          <div class="col col-25 ledger">
+            ${{jobNotes.totalCost()}}
+          </div>
+        </div>
+      </div>
+    </div>
+    <button ng-click="feedback()" class="button button-block button-positive">
+      Give <span ng-bind="workerNotes.first_name"></span> Feedback
+    </button>
+  </ion-content>
+</ion-view>

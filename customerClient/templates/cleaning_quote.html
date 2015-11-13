@@ -1,0 +1,40 @@
+<ion-view title="Review Details">
+  <ion-nav-bar class="bar bar-energized">
+    <ion-nav-back-button class="button-clear">
+      <i class="ion-arrow-left-c"></i> Back
+    </ion-nav-back-button>
+  </ion-nav-bar>
+  <ion-content class="summary-content" has-header="true" padding="true">
+    <div class="list job-summary-card card">
+      <div class="item item-image">
+        <img ng-src='{{user.getAddressMap()}}'>
+      </div>
+
+      <div class="item job-summary-item">
+        <div class="row">
+          <div class="col">
+            <div class="job-summary-detail" ng-repeat="(title,task) in user.getUserData().homes[0].rooms">
+              {{task.count}} {{title}}
+            </div>
+          </div>
+          <div class="col">
+            <div class="job-summary-detail">
+              total time:
+              <span class='uncertain'>approx {{job.totalTimeInHours()}} hours</span>
+            </div>
+            <div class="job-summary-detail">
+              estimated cost:
+              <span class='uncertain'>${{ job.totalCost() }}</span>
+            </div>
+          </div>
+        </div>
+        <div class="row no-margin">
+          <button ng-click="cancelJob()" class='button button-block button-small button-stable'>Cancel Job</cancel>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+  <button
+    ng-click="submitJob()"
+    class='bar bar-footer bar-positive button-full button-large'>Submit Job to Cleaners</button>
+</ion-view>

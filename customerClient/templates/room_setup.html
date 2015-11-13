@@ -1,0 +1,58 @@
+<ion-view >
+  <ion-content class="jobs-content" has-header="false" padding="true" >
+    <h3>Describe your place</h3>
+
+
+  <div class="list list-inset">
+    <label class="item item-input">
+      <i class="icon ion-search placeholder-icon"></i>
+      <input type="text" placeholder="address" ng-model="house.address">
+    </label>
+  <!-- </div> -->
+    <div ng-repeat="(name,info) in house.rooms">
+    <!-- {{name}} -->
+      <div class="row item item-input">
+        <div class="col">
+          <span ng-bind="info.count" ng-init="info.count=0"></span>&nbsp;
+          <span ng-bind="name"></span>
+        </div>
+          <span>
+            <button ng-disabled="info.count===0" class="button button-clear button-assertive" ng-click="roomCount(name,-1)">
+              <i class="ion ion-minus-circled"></i>
+            </button>
+          </span>
+          <span>
+            <button class="button button-clear button-positive" ng-click="roomCount(name,1)">
+              <i class="ion ion-plus-circled"></i>
+            </button>
+          </span>
+      </div>
+    </div>
+    <div class="row">
+      <button ng-click="addPlace()" ng-disabled="totalRooms()===0" class="col button-clear button button-balanced">add it</button>
+      <button ng-click="commitRooms()" class="button-clear col button button-positive">complete</button>
+    </div>
+
+<div class='list'>
+  <div class='item row-center row' ng-repeat="listing in allPlaces">
+  <div class='col'>
+    <ul ng-repeat="(room,info) in listing.rooms">
+      <li>
+        {{info.count}} {{room}}
+      </li>
+    </ul>
+  </div>
+  <div class='col item-text-wrap col-bottom'>
+  {{listing.address}}
+  </div>
+  
+  <span class='' style="float:right;">
+    <button class="button button-dark button-clear" ng-click="allPlaces.splice($index,1)">
+      <h1><i class="ion ion-trash-b"></i></h1>  
+    </button>
+  </span>
+  </div>
+</div>
+
+</ion-content>
+</ion-view>

@@ -1,0 +1,62 @@
+<ion-view title="job review">
+<ion-nav-buttons side="right">
+  <button menu-toggle="right" class="button button-icon icon ion-navicon"></button>
+</ion-nav-buttons>
+<ion-content padding='true'>
+<div class='row'>
+  <h2>payment format: {{completedJob.getJobData().payment_form}}</h2>
+</div>
+<span style="font-style:italic;" ng-bind="payment_policy[completedJob.getJobData().payment_form]"></span>
+<!-- <div class='row'> -->
+  <h2>job details (for review)</h2>
+<!-- </div> -->
+
+<div class='row'>
+  <div class='col col-66'>
+    client
+  </div>
+  <div class='col'>
+  {{completedJob.getJobData().client.first_name}} {{completedJob.getJobData().client.last_name}}
+  </div>
+</div>
+<div class='row'>
+  <div class='col col-66'>
+    time started
+  </div>
+  <div class='col'>
+    {{completedJob.getJobData().time_started | date: 'shortTime'}}
+  </div>
+</div>
+
+<div class='row'>
+  <div class='col col-66'>
+    time finished
+  </div>
+  <div class='col'>
+    {{completedJob.getJobData().time_finished | date: 'shortTime'}}
+  </div>
+</div>
+
+<div class='row'>
+  <div class='col col-66'>
+    total time worked (rounded up)
+  </div>
+  <div class='col'>
+    {{completedJob.totalTimeInHours()}} hours
+  </div>
+</div>
+
+<div class='row'>
+  <div class='col col-66'>
+    total due
+  </div>
+  <div class='col'>
+    ${{completedJob.totalCost()}}
+  </div>
+</div>
+
+<button ng-click='finalize()' class='button button-block button-positive'>finish job</button>
+<button ng-click='feedback()' class='button button-block button-large button-balanced'>finish & leave feedback</button>
+
+</ion-content>
+</ion-view>

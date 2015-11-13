@@ -1,0 +1,58 @@
+<ion-view title="Schedule a Cleaning">
+  <ion-nav-bar class="bar bar-energized">
+    <ion-nav-back-button class="button-clear">
+      <i class="ion-arrow-left-c"></i> Back
+    </ion-nav-back-button>
+  </ion-nav-bar>
+  <ion-content class="jobs-content" has-header="true" padding="true">
+
+    <div class="page-header">
+      <h1>What times are you available for your cleaning?</h1>
+    </div>
+
+    <div class="list card">
+      <ion-item class="item-divider">
+        Home Information
+      </ion-item>
+      <div class="item item-text-wrap house-info-card">
+        <div class="l1">{{job.getJobData().location.address}}</div>
+        <div class="l2">Approximate duration: {{job.totalTimeInHours()}} hours</div>
+      </div>
+    </div>
+
+    <ion-list class="card" show-delete="data.showDelete">
+      <ion-item class="item-divider">
+        Available Cleaning Times
+            <!--
+            <button class="button button-small icon button-icon ion-trash-b pull-right"
+              ng-click="data.showDelete=!data.showDelete"
+              ng-disabled="tentativeJobTimes.length==0"></button> -->
+      </ion-item>
+      <ion-item class="item item-text-wrap" ng-if='tentativeJobTimes.length==0'>
+        Add times when you're available.
+        The more times you add, the easier it is to find your preferred cleaners.
+      </ion-item>
+      <ion-item ng-repeat="k in tentativeJobTimes">
+          <div class="li">{{ k | date: "MMM d ' at 'h:mm a"}}</div>
+          <div class='l2'> Expected finish: {{timeDiff(k)|date:'h:mm a'}}</div>
+          <ion-delete-button class="ion-minus-circled"
+                             ng-click="removeTime($index)">
+          </ion-delete-button>
+      </ion-item>
+    </ion-list>
+
+    <button class="button button-block button-calm button-outline" ng-click="showTimePopup($event)">
+      <i class="icon ion-plus-round"></i>
+      add time
+    </button>
+
+    <div class="padding"></div>
+
+  </ion-content>
+  <button
+    ng-class='jobOptions()'
+    ng-disabled='tentativeJobTimes.length==0'
+    ng-click="arrange()"
+    class='bar bar-footer button-full bar-positive button-large icon-left ion-chevron-right'></button>
+
+</ion-view>

@@ -1,0 +1,57 @@
+<ion-view title="Scheduled Job" hide-back-button='true'>
+  <ion-nav-bar class="bar bar-energized">
+    <ion-nav-back-button class="button-clear">
+      <i class="ion-arrow-left-c"></i> Back
+    </ion-nav-back-button>
+  </ion-nav-bar>
+  <ion-content has-header='true' padding='true'>
+    <div class="page-header">
+      <h1>Congrats, your home cleaning has been scheduled!</h1>
+    </div>
+    <div class="list pending-job-info card">
+      <div class="item">
+        <div class='row'>
+          <div class='col'>
+            Worker:
+          </div>
+          <div class='col'>
+            {{[pendingJob.getJobData().worker.first_name,pendingJob.getJobData().worker.last_name].join(" ")}}
+          </div>
+        </div>
+        <div class='row'>
+          <div class="col">
+            Address:
+          </div>
+          <div class="col">
+            {{pendingJob.getJobData().location.address}}
+          </div>
+        </div>
+        <div class='row'>
+          <div class='col'>
+            Time Scheduled:
+          </div>
+          <div class='col'>
+            {{pendingJob.getJobData().time_needed | date: 'short'}}
+          </div>
+        </div>
+        <div class='row'>
+          <div class='col'>
+            <p class="worker-bio">{{pendingJob.getJobData().worker.bio}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button
+      ng-disabled='true'
+      class='button button-block button-positive'>
+      contact {{pendingJob.getJobData().worker.first_name}}
+    </button>
+    <button
+      ng-disabled='true'
+      ng-click='cancelJob()'
+      class="button button-block button-stable button">
+      cancel job
+    </button>
+    <button ng-click="finished()" class='button button-small button-block button-balanced button-outline'>Skip Ahead (Demo Only)</button>
+  </ion-content>
+</ion-view>

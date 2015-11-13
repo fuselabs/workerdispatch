@@ -1,0 +1,23 @@
+<ion-view cache-view='false' title='OpenCleaner' hide-back-button='true'>
+  <ion-nav-bar class="bar bar-energized"></ion-nav-bar>
+  <ion-content has-header="true" padding="true">
+    <div class="page-header">
+      <h1>Welcome to OpenCleaner!</h1>
+      <h2>On-demand home cleaning by friendly professionals.</h2>
+      <h3>A worker-owned, worker-operated service.</h3>
+    </div>
+
+    <button class="button button-block button-positive offset" ng-click="register()">Sign-up!</button>
+
+    <div class="section-prompt double-offset">Already a member?</div>
+    <div class="list list-inset">
+      <label class="item item-input">
+        <input type="email" placeholder="Email" ng-model="user.email">
+      </label>
+      <label class="item item-input">
+        <input type="password" placeholder="Password" ng-model="user.password">
+      </label>
+      <button class="button button-block button-balanced" ng-click="login()">Login</button>
+    </div>
+  </ion-content>
+</ion-view>

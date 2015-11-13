@@ -1,0 +1,19 @@
+<ion-modal-view>
+  <ion-header-bar class-"bar bar-header bar-positive">
+    <h1 class="title">find a time</h1>
+  </ion-header-bar>
+  <ion-content class="padding">
+    here are the times {{offer.getJobData().first_name}} suggests:
+    <ul class='list'>
+      <li
+      ng-repeat='time in offer.getPreferredTimes()'
+      class='item'
+      ng-click="selectTime($index)">
+      {{time | date: 'short' }}
+      <i class='icon ion-chevron-right' style='float:right;'></i>
+      </li>
+    </ul>
+    or cancel and reject the job
+    <button ng-click='cancel()' class="button button-block button-assertive">cancel and reject</button>
+  </ion-content>
+</ion-modal-view>

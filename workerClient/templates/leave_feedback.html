@@ -1,0 +1,95 @@
+<ion-view title="leave feedback">
+<ion-nav-buttons side="right">
+  <button menu-toggle="right" class="button button-icon icon ion-navicon"></button>
+</ion-nav-buttons>
+
+<ion-content padding='true'>
+<div class='col'>
+this feedback will be confidential; we'll use it to determine whether and how to match this customer with workers in the future. some other details people should know.
+</div>
+<div class='list'>
+<div id='likert'>
+  <div class='row'>
+    answer the following questions with this key:
+  </div>
+  <div class='row'>
+    <div class='col col-50'>strongly disagree</div>
+    <div class='col col-offset-20'>strongly agree</div>
+  </div>
+  <div ng-repeat='(question,val) in questions.likert'>
+    <div class='col col-80 col-offset-10' ng-bind='question'></div>
+    <div class="range range-positive">
+        <i class="icon ion-ios-sunny-outline"></i>
+        <input type="range" name="volume" min="1" max="5"
+        value="{{val}}"
+        ng-model="questions.likert[question]">
+        <i class="icon ion-ios-sunny"></i>
+    </div>
+  </div>
+</div>
+
+<div id='binary'>
+  <div class='row'>
+    make the selection active for yes, inactive for no
+  </div>
+  <!-- <div ng-repeat='(question,val) in questions.binary'> -->
+    <ion-checkbox
+    class='item-text-wrap item'
+    ng-repeat="question in questions.binary"
+    ng-model="question.checked">
+      {{question.text}}
+    </ion-checkbox>
+  <!-- </div> -->
+</div>
+
+<div id="free">
+  <div class='row'>
+    please answer freely
+  </div>
+  <div ng-repeat='(question,val) in questions.free_range'>
+    <label class='item item-input'>
+      <textarea ng-model="questions.free_range[question]" placeholder="{{question}}"></textarea>
+    </label>
+  </div>
+</div>
+
+  <div class='col-50 col-offset-50'>
+    <button ng-click='submitFeedback()' class='button button-full button-balanced'>submit</button>
+  </div>
+
+</div>
+
+<!-- <ul class="list">
+<li class="item item-text-wrap item-toggle">
+     this person was fair
+     <label class="toggle toggle-balanced">
+       <input type="checkbox">
+       <div class="track">
+         <div class="handle"></div>
+       </div>
+     </label>
+  </li>
+
+  <li class="item item-text-wrap item-toggle">
+     i'd like to work with this person again
+     <label class="toggle toggle-balanced">
+       <input type="checkbox">
+       <div class="track">
+         <div class="handle"></div>
+       </div>
+       
+     </label>
+  </li>
+</ul>
+<div class='row'>
+<div class='col'>strongly disagree</div>
+<div class='col col-offset-50'>strongly agree</div>
+</div>
+  <div class="item range range-positive">
+    <i class="icon ion-ios-sunny-outline"></i>
+    <input type="range" name="volume" min="0" max="5" value="2">
+    <i class="icon ion-ios-sunny"></i>
+  </div> -->
+
+</ion-content>
+</ion-view>

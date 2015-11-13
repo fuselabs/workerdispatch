@@ -1,0 +1,16 @@
+<ion-view title='Job Submitted'>
+  <ion-nav-bar class="bar bar-energized">
+    <ion-nav-back-button class="button-clear">
+      <i class="ion-arrow-left-c"></i> Back
+    </ion-nav-back-button>
+  </ion-nav-bar>
+  <ion-content has-header='true' padding='true'>
+    <div class="page-header">
+      <h1>Your request has been submitted.</h1>
+      <h2>We'll notify you when a worker claims the job</h2>
+    </div>
+
+    <button ng-click="cancelJob()" class="button button-block button-small button-stable">Cancel Job</button>
+    <button ng-click="pending()" class='button button-small button-block button-balanced button-outline'>Skip Ahead (Demo Only)</button>
+  </ion-content>
+</ion-view>

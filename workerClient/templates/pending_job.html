@@ -1,0 +1,36 @@
+<ion-view title="pending job info" hide-back-button='true'>
+<ion-nav-buttons side="right">
+    <button menu-toggle="right" class="button button-icon icon ion-navicon"></button>
+  </ion-nav-buttons>
+
+<ion-content>
+
+<div class='col col-75'>
+  <div class='row'>
+    employer: {{[pendingJob.getJobData().client.first_name,pendingJob.getJobData().client.last_name].join(" ")}}
+  </div>
+  <div class='row'>
+    address:
+    <a ng-href='{{locationURL}}'>{{pendingJob.getJobData().location.address}}</a>
+  </div>
+  <div class='row'>
+    time needed: {{pendingJob.getJobData().time_needed | date: 'short'}}
+  </div>
+</div>
+<span class="item-thumbnail-right">
+    <img ng-src='{{pendingJob.getJobData().client.profile_photo || "img/no-picture.png"}}'>
+  </span>
+<button
+  ng-disabled='true'
+  class='button button-block button-energized'>
+  contact customer
+</button>
+<button
+  ng-click='startWork()'
+  ng-disabled="pendingJob.getJobData().time_needed>currentTime() && false"
+  class="button button-block button-balanced button-large">
+    <span ng-if="true">start job</span>
+    <!-- <span ng-if="">wait until the correct time to start</span> -->
+</button>
+</ion-content>
+</ion-view>

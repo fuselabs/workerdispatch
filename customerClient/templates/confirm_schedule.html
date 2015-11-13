@@ -1,0 +1,13 @@
+<ion-view>
+    <ion-content class="jobs-content" has-header="false" padding="true">
+    <h3>{{requestedWorker.name}} suggested these times:</h3>
+        <ul class="list">
+            <li ng-repeat="time in suggestedTimes" ng-click="arrange({{time.time_id}})" class="item">
+                <span>{{time.time | date: 'short' }}</span>
+                <i class="ion-chevron-right icon" style="float:right;"></i>
+            </li>
+        </ul>
+        <button class="button button-assertive">cancel this job</button>
+        <button style="float:right;" ng-click="" class="button button-balanced">suggest other times</button>
+    </ion-content>
+</ion-view>

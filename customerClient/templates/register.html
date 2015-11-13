@@ -1,0 +1,37 @@
+<ion-view title="Sign-Up">
+  <ion-nav-bar class="bar bar-energized">
+    <ion-nav-back-button class="button-clear">
+      <i class="ion-arrow-left-c"></i> Back
+    </ion-nav-back-button>
+  </ion-nav-bar>
+  <ion-content has-header="true" padding="true">
+    <div class="page-header">
+      <h1>Tell us about yourself</h1>
+    </div>
+    <div class="list list-inset" style="margin-top: 10px;">
+        <label class="item item-input">
+            <input type="text" placeholder="First name" ng-model="user.first_name">
+            <input type="text" placeholder="Last name" ng-model="user.last_name">
+        </label>
+        <label class="item item-input">
+            <input type="text" placeholder="Phone" ng-model="user.phone">
+        </label>
+        <label class="item item-input">
+            <input type="text" placeholder="Email" ng-model="user.email">
+        </label>
+        <label class="item item-input">
+            <input type="text" placeholder="Languages spoken" ng-model="user.languages">
+        </label>
+        <label class="item item-input">
+            <input type="password" placeholder="Password" ng-model="user.password">
+        </label>
+        <label class="item item-input">
+            <input type="password" placeholder="Re-enter password" ng-model="user.password2">
+        </label>
+        <button class="button button-block button-positive" ng-click="register()">Sign-Up</button>
+
+        <div class="section-prompt offset">Already a member?</div>
+        <button class="button button-block button-balanced button-light-border" ui-sref="login">Log-In</button>
+    </div>
+  </ion-content>
+</ion-view>

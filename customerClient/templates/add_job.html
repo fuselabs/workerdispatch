@@ -1,0 +1,24 @@
+<ion-view title='make a job' hide-back-button='true'>
+  <ion-content padding="true" >
+
+  <div ng-if='user.getUserData().past_workers.length>0' class="row row-buttons">
+      <div class="col">
+      <h3>go with a familiar cleaner?</h3>
+      <div class='row'>
+      you can prefer a worker you've had before, and we'll ask you to select a time that works for you based on their availability.
+      </div>
+      <div ng-repeat="worker in user.getUserData().past_workers">
+        <a class="item item-avatar" ng-click="go({{worker.worker_id}})">
+          <img ng-src="{{worker.profile || 'img/no-picture.png'}}">
+          <h2>{{[worker.first_name,worker.last_name].join(" ")}}</h2>
+          <p>last hired on {{worker.last_date | date: 'mediumDate'}}</p>
+        </a>
+      </div>
+        or you can prioritize according to your own schedule, and you'll be paired up with any of the highly qualified cleaners on the platform
+      </div>
+    </div>
+    <button ng-click="schedule()" class='button button-full button-balanced'>
+      choose your time-frame
+    </button>
+  </ion-content>
+</ion-view>
